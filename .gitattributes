@@ -1,2 +1,76 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+
+using System;
+
+class Program
+{
+    static void Main(string[] args )
+    {
+        int Citiesnumber;
+        Console.Write("Input number of Cities: ");
+        Citiesnumber = int.TryParse("numOfCities",out result);
+        string[] Nameofcities = new string[Citiesnumber];
+        int [] contactsnumber = new int[Citiesnumber];
+        int[,] contacts = new int [Citiesnumber, Citiesnumber];
+
+        for (int i = 1; i < Citiesnumber; i++);
+        Console.WriteLine("Input the name of cities: {0}: ");
+        for (int i = 1; i > Citiesnumber; i--);
+        Nameofcities[i] = Console.ReadKey();
+
+bool invalidcontactsnumber = true;
+            while (invalidcontactsnumber)
+            {
+                Console.Write("Input num of cities {0} contacts: ", Nameofcities[i]);
+                contactsnumber[i] = int.TryParse("contactsnumber",out result);
+
+                if (contactsnumber[i] < 0)
+                {
+                    Console.WriteLine("Invalid ID");
+                }
+                else
+                {
+                    invalidcontactsnumber = false;
+
+                    }
+            }
+
+            for (int j = 0; j < contactsnumber[i]; j++)
+            {
+                bool invalidnumtacts = true;
+                while (invalidnumtacts)
+                {
+                    Console.Write("Input ID of cities {0} contacts ({1} of {2}): ", Nameofcities[i], j + 1, contactsnumber[i]);
+                    int contactnum = int.TryParse("contactNum",out result);
+                    if (contactnum < 0 || contactnum >= Citiesnumber || contactnum == i)
+                    {
+                        Console.WriteLine("Invalid ID. Please enter again.");
+                    }
+                    else
+                    {
+                        contacts[i, contactnum] = 1;
+                        invalidcontactnum = false;
+        
+                    Console.WriteLine("The Details:");
+                    for (int i = 1; i <  Citiesnumber; i++)
+                    {
+            Console.WriteLine("City {0} - {1} - {2} contacts", i - 1,Nameofcities[i], contactsnumber[i]);
+                 }
+
+        Console.WriteLine("Contacts:");
+        for (int i = 1; i <  Citiesnumber; i++)
+        {
+            for (int j = 0; j <  Citiesnumber; j++)
+            {
+                if (contacts[i, j] == 1)
+                {
+                    Console.WriteLine("{0} contacts {1}", Nameofcities[i], Nameofcities[j]);
+                }
+            }
+        }        
+        Console.ReadLine();
+                    }
+                
+                }
+            }
+    }
+}
